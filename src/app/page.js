@@ -1,7 +1,7 @@
 'use client';
 
 import axios from 'axios';
-import { ChefHat, Clock, Users, Star } from 'lucide-react';
+import { ChefHat, Clock, Users, Star, Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -55,11 +55,14 @@ export default function Home() {
           <div className="relative">
             <input
               type="text"
-              placeholder="Search for recipes or ingredients..."
+              placeholder="Search for recipes..."
               className="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent shadow-lg"
             />
-            <button className="absolute right-2 top-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2 rounded-full hover:from-amber-600 hover:to-orange-600 transition-all duration-300">
+            <button className="hidden md:flex absolute right-2 top-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2 rounded-full hover:from-amber-600 hover:to-orange-600 transition-all duration-300">
               Search
+            </button>
+            <button className="flex md:hidden absolute right-2 top-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-2 rounded-full hover:from-amber-600 hover:to-orange-600 transition-all duration-300">
+              <Search />
             </button>
           </div>
         </div>
