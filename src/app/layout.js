@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'MealMaster - Daily Meal Ideas',
@@ -9,6 +10,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5G8PGEQDYV"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5G8PGEQDYV');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
         <Navbar />
         <main className="container mx-auto px-4 py-8">
@@ -27,7 +43,9 @@ export default function RootLayout({ children }) {
               <a href="#" className="hover:text-amber-300 transition-colors">Terms of Service</a>
             </div>
 
-            <p className='mt-10 py-5 border-t-1 flex items-center justify-center gap-1'>© 2025 MealMaster. Made With 🧡 By G. Murtaza</p>
+            <p className='mt-10 py-5 border-t-1 flex items-center justify-center gap-1'>
+              © 2025 MealMaster. Made With 🧡 By G. Murtaza
+            </p>
           </div>
         </footer>
       </body>
